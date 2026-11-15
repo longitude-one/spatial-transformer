@@ -1,0 +1,87 @@
+{
+    "name": "longitude-one/spatial-transformer",
+    "type": "library",
+    "description": "Transform spatial objects using immutable, constructor-injected strategies.",
+    "keywords": [
+        "spatial",
+        "geometry",
+        "geography",
+        "transform",
+        "strategy",
+        "php"
+    ],
+    "authors": [
+        {
+            "name": "Alexandre Tranchant",
+            "email": "alexandre.tranchant@gmail.com",
+            "role": "Lead maintainer"
+        }
+    ],
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": false
+    },
+    "license": "MIT",
+    "require": {
+        "php": "^8.4",
+        "longitude-one/spatial-types": "^1.0.0-RC.1"
+    },
+    "require-dev": {
+        "ext-dom": "*",
+        "phpunit/phpunit": "^13.2"
+    },
+    "prefer-stable": true,
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "LongitudeOne\\SpatialTransformer\\": "lib/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "LongitudeOne\\SpatialTransformer\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "@php vendor/bin/phpunit --no-coverage",
+        "coverage": "@php -d pcov.enabled=1 -d pcov.directory=lib vendor/bin/phpunit --coverage-text=build/coverage/coverage.txt --coverage-clover=build/coverage/clover.xml --coverage-html=build/coverage/html",
+        "coverage-ci": "@php -d pcov.enabled=1 -d pcov.directory=lib vendor/bin/phpunit --configuration=phpunit.ci.xml --coverage-clover=build/coverage/clover.xml",
+        "coverage-check": "@php quality/coverage-check.php build/coverage/clover.xml 0",
+        "cs-check": "quality/php-cs-fixer/vendor/bin/php-cs-fixer fix --config=quality/php-cs-fixer/.php-cs-fixer.php --allow-risky=yes --dry-run --diff",
+        "cs-fix": "quality/php-cs-fixer/vendor/bin/php-cs-fixer fix --config=quality/php-cs-fixer/.php-cs-fixer.php --allow-risky=yes",
+        "phpstan": "quality/php-stan/vendor/bin/phpstan analyse --configuration=quality/php-stan/php-stan.neon lib tests --error-format=table --no-progress --no-interaction --no-ansi --level=9 --memory-limit=256M",
+        "phpmd": [
+            "quality/php-mess-detector/vendor/bin/phpmd analyze lib --format text --ruleset quality/php-mess-detector/ruleset.yml",
+            "quality/php-mess-detector/vendor/bin/phpmd analyze tests --format text --ruleset quality/php-mess-detector/test-ruleset.yml"
+        ],
+        "phpcs": "quality/php-code-sniffer/vendor/bin/phpcs --standard=quality/php-code-sniffer/phpcs.xml -s",
+        "markdown": "npm run lint:markdown -- --config quality/.markdownlint.json",
+        "quality": [
+            "@cs-check",
+            "@phpstan",
+            "@phpmd",
+            "@phpcs",
+            "@markdown"
+        ],
+        "update-tools": [
+            "@composer update --working-dir=quality/php-cs-fixer",
+            "@composer update --working-dir=quality/php-stan",
+            "@composer update --working-dir=quality/php-mess-detector",
+            "@composer update --working-dir=quality/php-code-sniffer"
+        ],
+        "audit-dependencies": [
+            "@composer audit",
+            "@composer audit --working-dir=quality/php-cs-fixer",
+            "@composer audit --working-dir=quality/php-stan",
+            "@composer audit --working-dir=quality/php-mess-detector",
+            "@composer audit --working-dir=quality/php-code-sniffer"
+        ],
+        "check": [
+            "@composer validate --strict",
+            "@audit-dependencies",
+            "@coverage",
+            "@coverage-check",
+            "@quality"
+        ]
+    }
+}

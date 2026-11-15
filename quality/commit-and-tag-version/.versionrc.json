@@ -1,0 +1,48 @@
+{
+    "releaseCommitMessageFormat": "chore(release): v{{currentTag}} \ud83c\udf89",
+    "packageFiles": [],
+    "bumpFiles": [],
+    "types": [
+        {
+            "type": "feat",
+            "section": "\u2728 New Features"
+        },
+        {
+            "type": "fix",
+            "section": "\ud83d\udc1b Bug Fixes"
+        },
+        {
+            "type": "perf",
+            "section": "\u26a1 Performance Improvements"
+        },
+        {
+            "type": "refactor",
+            "section": "\u267b\ufe0f Refactoring"
+        },
+        {
+            "type": "docs",
+            "section": "\ud83d\udcda Documentation"
+        },
+        {
+            "type": "eco",
+            "section": "\ud83c\udf33 Environmental Impact"
+        },
+        {
+            "type": "ci",
+            "section": "\ud83d\udc77 CI/CD"
+        },
+        {
+            "type": "chore",
+            "section": "\ud83d\udd27 Maintenance"
+        },
+        {
+            "type": "quality",
+            "section": "\ud83d\udcca\u200b Quality tools"
+        },
+        {
+            "type": "test",
+            "section": "\ud83d\udcd7\u200b PHPUnit tests"
+        }
+    ],
+    "tagPrefix": ""
+}
