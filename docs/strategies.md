@@ -45,3 +45,5 @@ Strategies must preserve the input, including mutable implementations of
 Unsupported transformations must fail explicitly. Strategy exceptions propagate
 unchanged. No package-specific exception hierarchy is introduced.
 Strategies need no Doctrine, parser, serializer, database or CRS engine dependency.
+
+See [Strategy configuration](strategy-configuration.md) for validated options and custom strategies.
