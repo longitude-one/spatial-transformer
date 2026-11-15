@@ -1,0 +1,10 @@
+# PHPMD configuration, see https://phpmd.org/documentation/creating-a-ruleset.html
+name: 'Spatial Transformer rule set'
+description: 'Alexandre Tranchant rule set.'
+rules:
+  - ref: rulesets/cleancode.xml
+  - ref: rulesets/codesize.xml
+  - ref: rulesets/controversial.xml
+  - ref: rulesets/design.xml
+  - ref: rulesets/naming.xml
+  - ref: rulesets/unusedcode.xml

@@ -1,0 +1,6 @@
+parameters:
+    treatPhpDocTypesAsCertain: false
+    paths:
+        - ../../quality
+        - ../../lib
+        - ../../tests

@@ -1,0 +1,5 @@
+This file is part of the LongitudeOne Spatial project.
+
+Copyright (c) %year% Alexandre Tranchant <alexandre.tranchant@gmail.com>
+
+See LICENSE for copyright and license information.

@@ -1,0 +1,17 @@
+# PHPMD configuration, see https://phpmd.org/documentation/creating-a-ruleset.html
+name: 'Alexandre PHPMD rule set'
+description: 'Specific custom rule set that checks longitude-one/spatial-transformer test code.'
+rules:
+  - ref: rulesets/cleancode.xml
+    exclude:
+      - MissingImport
+  - ref: rulesets/codesize.xml
+    exclude:
+      - TooManyPublicMethods
+      - TooManyMethods
+  - ref: rulesets/controversial.xml
+  - ref: rulesets/design.xml
+  - ref: rulesets/naming.xml
+    exclude:
+        - LongMethodName
+  - ref: rulesets/unusedcode.xml
